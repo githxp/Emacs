@@ -7,6 +7,13 @@
 (add-to-list 'package-archives'("popkit" . "http://elpa.popkit.org/packages/"))
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("7126d88eb94b4ea43186427f1b287f9c850cf29be7ba5c1b560ee7be50e58743" "13c4c0f8d59e4763ef926bd44c66be41ed15c4371bab099992d3fc048efa75fe" default)))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(ecb-layout-window-sizes nil)
@@ -19,7 +26,12 @@
 ;不显示工具栏
 
 (custom-set-faces
- '(default ((t (:family "文泉驿等宽微米黑" :foundry "unknown" :slant normal :weight normal :height 158 :width normal)))));设置字体
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "文泉驿等宽微米黑" :foundry "unknown" :slant normal :weight normal :height 158 :width normal)))))
+;设置字体
 
 (global-linum-mode t)
 
@@ -29,24 +41,6 @@
 
 (global-hl-line-mode 1);高亮当前行
 
-(set-foreground-color "green");设置前景色
-
-(set-background-color "#272822");设置背景色
-
-(set-mouse-color "red");设置光标颜色
-
-(set-face-foreground 'highlight "#0000000");设置前景高亮色
-
-(set-face-background 'highlight "#383830");设置背景高亮色
-
-(set-face-foreground 'region "#FFFFFF");设置区域前景色
-
-(set-face-background 'region "#383830");设置区域背景色
-
-(set-face-foreground 'secondary-selection "skyblue");设置二次选择前景色
-
-(set-face-background 'secondary-selection "darkblue");设置二次选择背景色
-
 (setq show-parse--mode t)
 
 (global-font-lock-mode t);打开语法高亮
@@ -55,7 +49,7 @@
 
 (setq cursor-type '(bar . 2));设置光标宽度
 
-(setq ecb-auto-activate t);自动启动ecb
+(setq ecb-auto-activate nil);关闭自动启动ecb
 
 (setq ecb-tip-of-the-day nil);关闭ecb每日提示
 
@@ -90,11 +84,14 @@
 (setq calendar-longitude 112.814784)
 (setq calendar-location-name "ChangSha")
 
+(add-hook 'find-file-hook 'highlight-parentheses-mode t)
+
 ;;加载配置文件
 (defun add-subdirs-to-load-path (dir)
   (let ((default-directory (file-name-as-directory dir)))
     (add-to-list 'load-path dir)
     (normal-top-level-add-subdirs-to-load-path)))
+
 (add-subdirs-to-load-path "/home/hxp/.myEmacs")
 
-(require 'highlight-parentheses);加载highlight插件
+(require 'mytheme);加载自定义主题
