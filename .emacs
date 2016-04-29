@@ -30,7 +30,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "文泉驿等宽微米黑" :foundry "unknown" :slant normal :weight normal :height 158 :width normal)))))
+ )
 ;设置字体
 
 (global-linum-mode t)
@@ -84,7 +84,11 @@
 (setq calendar-longitude 112.814784)
 (setq calendar-location-name "ChangSha")
 
+;;打开高亮匹配模式
 (add-hook 'find-file-hook 'highlight-parentheses-mode t)
+
+;;jdee-server-dir路径
+(setq jdee-server-dir "/home/hxp/下载/jdee-server-master/target")
 
 ;;加载配置文件
 (defun add-subdirs-to-load-path (dir)
