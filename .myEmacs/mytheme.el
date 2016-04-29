@@ -17,7 +17,7 @@
 	;;高亮行背景色
    `(highlight ((,class (:background "#383830"))))
 	;;区域选择背景色
-   `(region ((,class (:background "#FFFFFF"))))
+   `(region ((,class (:background "#FBFFBB"))))
 	;;二次选择背景色和前景色
    `(secondary-selection ((,class (:background "darkblue" :foreground "skyblue"))))
 	;;当前搜索结果项背景色和前景色
@@ -40,7 +40,7 @@
    `(escape-glyph ((,class (:background "yellow" :foreground "white" :box (:line-width 1 :color "blue" :style released-button)))))
 
    ;; Font lock faces
-   `(font-lock-builtin-face ((,class (:foreground "yellow"))))
+   `(font-lock-builtin-face ((,class (:foreground "red"))))
 	;;常量颜色
    `(font-lock-constant-face ((,class (:foreground "#FFFFFF"))))
 	;;函数颜色
@@ -59,8 +59,9 @@
    `(font-lock-variable-name-face ((,class (:foreground "white" :bold nil))))
 	;;警告颜色
    `(font-lock-warning-face ((,class (:foreground "yellow" :weight bold))))
-'(show-paren-mismatch ((t (:background "red"))))
-'(window-number-face ((t (:foreground "red" :weight bold))))
+
+   '(show-paren-mismatch ((t (:background "red"))))
+   '(window-number-face ((t (:foreground "red" :weight bold))))
 
    ;; Compilation faces
 	;;错误信息颜色
