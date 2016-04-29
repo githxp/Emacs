@@ -1,0 +1,132 @@
+conky.config = {
+background = true,
+alignment = 'top_right',
+
+gap_x = 10,
+gap_y = 18,
+
+cpu_avg_samples = 2,
+diskio_avg_samples = 2,
+net_avg_samples = 2,
+
+default_bar_height = 30,
+default_bar_width = 500,
+default_graph_height = 30,
+default_graph_width = 500,
+
+no_buffers = true,
+
+double_buffer = true,
+out_to_console = false,
+
+default_color = '#FFFFFF',
+
+draw_borders = false,
+border_width = 0,
+
+draw_graph_borders = false,
+format_human_readable = true,
+
+draw_outline = false,
+default_outline_color = 'white',
+
+draw_shades = false,
+default_shade_color = 'white',
+
+own_window = true,
+own_window_transparent = true,
+own_window_argb_visual = true,
+own_window_argb_value = 255,
+own_window_color= '000000',
+own_window_type = 'desktop',
+
+top_cpu_separate = false,
+top_name_verbose = false,
+
+update_interval = 2,
+own_window_class = 'Conky',
+
+use_xft = true,
+font='WenQuanYi Micro Hei:size=10',
+
+lua_load='/home/hxp/myConky/clock_rings.lua',
+lua_draw_hook_pre='clock_rings'
+}
+
+
+conky.text=[[
+系统${offset 20}类型: $sysname${offset 20}架构: $machine${offset 20}主机名: $nodename${offset 20}当前用户: $user_names
+${offset 46}平均负载: $loadavg${offset 20}进程总数: $processes${offset 20}活跃进程数: $running_processes${offset 20}线程总数: $threads
+${offset 46}${voffset 10}负载历史 ${voffset -10}${loadgraph 30,376 FF6600 02CF54}
+
+
+CPU${offset 20}温度:  ${font WenQuanYi Micro Hei:size=14}${voffset -5}$acpitemp°C$font
+${offset 360}${voffset -15}已用CPU${offset 33}${font WenQuanYi Micro Hei:size=12}$cpu$font
+${offset 442}${font WenQuanYi Micro Hei:size=9}%$font
+${offset 46}${voffset 10}核心1负载: ${cpu cpu1}%${offset 20}核心2负载: ${cpu cpu2}%${offset 20}核心3负载: ${cpu cpu3}%${offset 20}核心4负载: ${cpu cpu4}%
+${offset 46}最消耗CPU${offset 20}名称: ${top name 1}${offset 20}占用: ${top cpu 1}%${offset 20}PID: ${top pid 1}
+${offset 46}${voffset 10}使用历史 ${voffset -10}${cpugraph 30,376 FF6600 02CF54}
+
+
+内存${offset 20}已用/全部: ${font WenQuanYi Micro Hei:size=14}${voffset -5}$mem/$memmax$font
+${offset 360}${voffset -15}已用内存${offset 26}${font WenQuanYi Micro Hei:size=12}$memperc$font
+${offset 442}${font WenQuanYi Micro Hei:size=9}%$font
+${offset 46}${voffset 10}使用历史 ${voffset -10}${memgraph 30,376 FF6600 02CF54}
+
+
+磁盘${offset 20}已用/全部: ${font WenQuanYi Micro Hei:size=14}${voffset -5}$fs_used/$fs_size${offset 20}$font
+${offset 360}${voffset -15}已用空间${offset 26}${font WenQuanYi Micro Hei:size=12}$fs_used_perc$font
+${offset 442}${font WenQuanYi Micro Hei:size=9}%$font
+${offset 46}文件系统: $fs_type
+${offset 46}${voffset 10}读取速度: $diskio_read/s
+${offset 46}${voffset 10}读取历史 ${voffset -10}${diskiograph_read 30,376 FF6600 02CF54}
+${offset 46}写入速度: $diskio_write/s
+${offset 46}${voffset 10}写入历史 ${voffset -10}${diskiograph_write 30,376 FF6600 02CF54}
+
+
+电池${offset 20}电池状态:  ${font WenQuanYi Micro Hei:size=14}${voffset -5}$battery${offset 20}$font
+${offset 360}${voffset -15}剩余电量${offset 22}${font WenQuanYi Micro Hei:size=12}$battery_percent$font
+${offset 442}${font WenQuanYi Micro Hei:size=9}%$font
+${offset 36}${offset 10}电脑累计运行时间: ${font WenQuanYi Micro Hei:size=14}${voffset -5} $uptime$font
+
+
+${offset 650}${voffset -663}${color #000000}${font TeX Gyre Cursor:size=48}${time %H}:${time %M}$font$color
+${offset 917}${voffset -34}${color #FFFFFF}${font TeX Gyre Cursor:size=18}${time %S}$font$color
+${offset 736}${image /home/hxp/myConky/timebg.png -p 630,0 -s 230x80}
+
+${offset 634}${font Tensentype BoDangXingKaiJ:size=30}星期${color #FF6600}${time %a}$color$font
+${offset 770}${voffset -46}${font TeX Gyre Cursor:size=36}${time %m}${offset 43}${color #FF6600}${time %d}$color$font
+${offset 830}${voffset -45}${font Tensentype BoDangXingKaiJ:size=30}月${offset 58}日$font
+
+
+
+${offset 520}网络${offset 20}有线连接${offset 20}N/A
+${offset 566}无线连接${offset 20}已连接: $wireless_essid${offset 20}连接速度: ${wireless_bitrate wlo1}${offset 20}当前模式: ${wireless_mode wlo1}
+${offset 638}当前信号/最大信号: ${wireless_link_qual wlo1}dB/${wireless_link_qual_max wlo1}dB${offset 20}信号率: ${wireless_link_qual_perc wlo1}%
+${offset 638}信号强度 ${color #FF6600}${wireless_link_bar 6,304 wlo1}$color
+${offset 638}信号频道: ${wireless_channel wlo1}${offset 20}信号频率: ${wireless_freq wlo1}
+${offset 638}网卡名称: $gw_iface${offset 20}路由器IP地址: $gw_ip
+${offset 638}路由器MAC地址: ${wireless_ap wlo1}
+${offset 638}IPV4地址: ${addr wlo1}${offset 20}IPV6地址: ${v6addrs wlo1}
+
+
+${offset 638}上传速度${offset 24}${upspeedf wlo1}${goto 848}下载速度${offset 22}${downspeedf wlo1}
+${font TeX Gyre Cursor:size=9}${offset 712}Kb/s${offset 178}Kb/s$font
+
+${offset 566}上传总量: ${font WenQuanYi Micro Hei:size=14}${voffset -5}${totalup wlo1}${offset 20}$font
+${offset 566}上传历史 ${voffset -10}${upspeedgraph wlo1 30,376 FF6600 02CF54}
+${offset 566}下载总量: ${font WenQuanYi Micro Hei:size=14}${voffset -5}${totaldown wlo1}${offset 20}$font
+${offset 566}下载历史 ${voffset -10}${downspeedgraph wlo1 30,376 FF6600 02CF54}
+
+
+${offset 520}音乐${offset 15}状态: ${font WenQuanYi Micro Hei:size=14}${voffset -5}$mpd_status$font${offset 10}音量: $mpd_vol%${offset 10}循环播放: $mpd_repeat${offset 10}随机播放: $mpd_random${offset 10}比特率: $mpd_bitrate kb/s
+${offset 658}${voffset 11}$mpd_file
+${offset 775}${voffset 48}$mpd_elapsed/$mpd_length
+${offset 662}${voffset 35}曲目: $mpd_title
+${offset 662}歌手: $mpd_artist
+${offset 662}专辑: $mpd_album
+${offset 665}${voffset -63}${color #FF6600}${mpd_bar 6,275}$color${offset 6}
+${offset 740}${image /home/hxp/myConky/musicbg.png -p 640,515 -s 330x168}
+${voffset 20}
+]]
+
